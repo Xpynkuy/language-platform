@@ -1,0 +1,62 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  font: var(--font-m);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+
+  &.s {
+    padding: 6px 12px;
+    font: var(--font-s);
+  }
+
+  &.m {
+    padding: 10px 20px;
+    font: var(--font-m);
+  }
+
+  &.l {
+    padding: 14px 28px;
+    font: var(--font-l);
+  }
+
+  &.primary {
+    background: var(--color-primary);
+    color: var(--text-color-white);
+  }
+
+  &.white {
+    background: var(--color-white);
+    color: var(--text-color-dark);
+  }
+
+  &.gray {
+    background: var(--color-gray);
+    color: var(--text-color-white);
+  }
+
+  &.black {
+    background: var(--color-black);
+    color: var(--text-color-white);
+  }
+
+  &.danger {
+    background: var(--color-red);
+    color: var(--text-color-dark);
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
