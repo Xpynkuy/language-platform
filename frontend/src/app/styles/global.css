@@ -1,0 +1,10 @@
+@import "clear.scss";
+@import "variables.scss";
+@import "animation.scss";
+
+body {
+    background: var(--bg-color-dark);
+    color: var(--text-color-white);
+    margin: 0;
+    padding: 0;
+}
