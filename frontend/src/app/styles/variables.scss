@@ -1,0 +1,43 @@
+:root {
+  //FONT
+  --font-family: "Roboto", sans-serif;
+
+  --font-size-s: 16px;
+  --font-line-s: 22px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family);
+
+  --font-size-m: 20px;
+  --font-line-m: 28px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family);
+
+  --font-size-l: 26px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family);
+
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family);
+
+  --font-size-xxl: 40px;
+  --font-line-xxl: 48px;
+  --font-xxl: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family);
+
+  //BACKGROUND COLOR
+  --bg-color-dark: #191919;
+  --bg-color-white: #f6f6f6;
+
+  //COLOR
+  --color-primary: #557792;
+  --color-white: #ffff;
+  --color-gray: #6a7282;
+  --color-black: #000;
+  --color-red: #a50036;
+
+  //TEXT COLOR
+  --text-color-white: #fff;
+  --text-color-dark: #000;
+  --text-color-gray: #cccccc;
+
+  //BORDER border-radius
+  --border-radius: 8px;
+}
