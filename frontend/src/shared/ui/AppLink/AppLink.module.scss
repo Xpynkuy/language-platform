@@ -1,0 +1,9 @@
+@use '../../../app//styles//animation.scss' as animation;
+
+.appLink {
+    text-decoration: none;
+    color: var(--text-color-white);
+    font: var(--font-m);
+
+    @include animation.hover-opac;
+}
