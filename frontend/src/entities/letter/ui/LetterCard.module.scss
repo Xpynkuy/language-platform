@@ -1,0 +1,43 @@
+.card {
+  background: var(--bg-color-gray);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 160px;
+
+  .glyph {
+    font: var(--font-extra);
+    margin-bottom: 8px;
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+
+    .name {
+      font: var(--font-m);
+      color: var(--text-color-gray);
+    }
+
+    .nameRu {
+      font: var(--font-m);
+      color: var(--text-color-gray);
+    }
+  }
+
+  .romanization {
+    font: var(--font-s);
+    margin-top: 4px;
+    color: var(--text-color-blue);
+  }
+
+  .russian {
+    font: var(--font-s);
+    color: var(--text-color-green);
+  }
+}

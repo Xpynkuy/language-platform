@@ -1,15 +1,35 @@
 import clsx from "clsx";
-import { Link, type LinkProps } from "react-router-dom";
+import { NavLink, type NavLinkProps } from "react-router-dom";
 import styles from "./AppLink.module.scss";
-interface AppLinkProps extends LinkProps {
+interface AppLinkProps extends NavLinkProps {
   className?: string;
+  variant?: "default" | "button";
+  noActive?: boolean;
 }
 const AppLink = (props: AppLinkProps) => {
-  const { className, to, children, ...other } = props;
+  const {
+    className,
+    variant = "default",
+    noActive,
+    to,
+    children,
+    ...other
+  } = props;
   return (
-    <Link to={to} className={clsx(styles.appLink, className)} {...other}>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        clsx(
+          styles.appLink,
+          styles[variant],
+          isActive && !noActive && styles.active,
+          className,
+        )
+      }
+      {...other}
+    >
       {children}
-    </Link>
+    </NavLink>
   );
 };
 

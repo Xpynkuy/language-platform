@@ -1,0 +1,10 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.tab.tabActive {
+  background: var(--color-primary);
+}
