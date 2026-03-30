@@ -1,0 +1,33 @@
+@use "../../../../src/app/styles/animation.scss" as animations;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  gap: 30px;
+  max-width: 500px;
+
+  .error {
+    color: var(--color-red);
+    font: var(--font-extra);
+  }
+
+  .title {
+    font: var(--font-xl);
+    color: var(--color-primary);
+  }
+
+  .img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+
+    @include animations.bounce;
+  }
+
+  .notif {
+    font: var(--font-m);
+    color: var(--text-color-gray);
+  }
+}
