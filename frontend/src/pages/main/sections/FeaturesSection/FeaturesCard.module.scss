@@ -1,0 +1,43 @@
+@use '../../../../app/styles/animation.scss' as animations;
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 190px;
+  padding: 14px;
+  gap: 8px;
+  border-radius: var(--border-radius);
+
+  background: linear-gradient(135deg, var(--bg-color-light-dark));
+  text-decoration: none;
+  color: inherit;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  @include animations.default;
+
+  &:hover {
+    @include animations.hover
+  }
+
+  .title {
+    font: var(--font-xl);
+  }
+
+  .descriptions {
+    font: var(--font-m);
+    color: var(--text-color-gray);
+  }
+
+  .icon {
+    transition: all 0.25s ease;
+    opacity: 0.7;
+  }
+
+  &:hover .icon {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
