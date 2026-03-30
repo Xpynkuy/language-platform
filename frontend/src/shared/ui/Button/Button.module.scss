@@ -1,3 +1,5 @@
+@use '../../../app/styles/animation.scss' as animations;
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -10,6 +12,8 @@
   cursor: pointer;
   user-select: none;
   white-space: nowrap;
+
+  @include animations.hover-opac;
 
   &.s {
     padding: 6px 12px;
