@@ -1,0 +1,33 @@
+.header {
+  background: transparent;
+  backdrop-filter: blur(12px);
+  height: 90px;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  .nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      text-decoration: none;
+      display: inline-block;
+      color: var(--text-color-white);
+      font: var(--font-s);
+      transform: rotate(-10deg);
+      .top {
+        display: block;
+        font: var(--font-xl);
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+}
