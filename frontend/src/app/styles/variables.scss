@@ -18,25 +18,33 @@
   --font-line-xl: 40px;
   --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family);
 
-  --font-size-xxl: 40px;
-  --font-line-xxl: 48px;
+  --font-size-xxl: 50px;
+  --font-line-xxl: 58px;
   --font-xxl: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family);
 
+  --font-size-extra: 72px;
+  --font-line-extra: 80px;
+  --font-extra: var(--font-size-extra) / var(--font-line-extra) var(--font-family);
+
   //BACKGROUND COLOR
-  --bg-color-dark: #191919;
+  --bg-color-dark: #101119;
   --bg-color-white: #f6f6f6;
+  --bg-color-light-dark: #151722;
+  --bg-color-gray: #999999b7;
 
   //COLOR
   --color-primary: #557792;
-  --color-white: #ffff;
   --color-gray: #6a7282;
   --color-black: #000;
   --color-red: #a50036;
+  --color-white: #fff;
 
   //TEXT COLOR
   --text-color-white: #fff;
   --text-color-dark: #000;
   --text-color-gray: #cccccc;
+  --text-color-blue: #4facfd;
+  --text-color-green: #7ffa9a;
 
   //BORDER border-radius
   --border-radius: 8px;
