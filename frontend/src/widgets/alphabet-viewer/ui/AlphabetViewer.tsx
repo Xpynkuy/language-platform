@@ -11,7 +11,7 @@ const TABS: TabsItem<AlphabetTab>[] = [
 ];
 
 export function AlphabetViewer() {
-  const [active, setActive] = useState<AlphabetTab>("consonants");
+  const [active, setActive] = useState<AlphabetTab>("vowels");
 
   return (
     <section className={styles.viewer}>
