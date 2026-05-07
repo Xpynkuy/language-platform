@@ -25,6 +25,9 @@ export class AccessTokenStrategy extends PassportStrategy(Strategy, 'jwt') {
         id: true,
         email: true,
         username: true,
+        nickname: true,
+        avatar: true,
+        poster: true,
       },
     });
     if (!user) {
