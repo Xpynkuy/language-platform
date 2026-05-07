@@ -4,12 +4,13 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  Patch,
   Post,
   Res,
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LoginDto, RegisterDto } from './dto/auth.dto';
+import { LoginDto, RegisterDto, UpdateProfileDto } from './dto/auth.dto';
 import type { Response } from 'express';
 import { AccessTokenGuard, RefreshTokenGuard } from './guards/jwt.guard';
 import { GetUser } from './decorators/get-user.decorator';
@@ -47,7 +48,14 @@ export class AuthController {
 
   @UseGuards(AccessTokenGuard)
   @Get('me')
-  getMe(@GetUser() user: { id: string; email: string; username: string }) {
-    return user;
+  getMe(@GetUser('id') userId: string) {
+    return this.authService.getProfile(userId);
+  }
+
+  @UseGuards(AccessTokenGuard)
+  @Patch('profile')
+  @HttpCode(HttpStatus.OK)
+  updateProfile(@GetUser('id') userId: string, @Body() dto: UpdateProfileDto) {
+    return this.authService.updateProfile(userId, dto);
   }
 }

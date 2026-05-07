@@ -7,7 +7,7 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { JwtService, JwtSignOptions } from '@nestjs/jwt';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { LoginDto, RegisterDto } from './dto/auth.dto';
+import { LoginDto, RegisterDto, UpdateProfileDto } from './dto/auth.dto';
 import * as argon2 from 'argon2';
 import { Response } from 'express';
 import { JwtPayload, JwtPayloadRefresh, Tokens } from './types/jwt.types';
@@ -41,6 +41,7 @@ export class AuthService {
         email: dto.email,
         username: dto.username,
         password: hashedPassword,
+        nickname: dto.nickname ?? null,
       },
     });
     return { message: 'Регистрация успешна' };
@@ -86,7 +87,10 @@ export class AuthService {
     res.json({ message: 'Выход выполнен' });
   }
 
-  async refreshTokens(payload: JwtPayloadRefresh, res: Response): Promise<void> {
+  async refreshTokens(
+    payload: JwtPayloadRefresh,
+    res: Response,
+  ): Promise<void> {
     const user = await this.prisma.user.findUnique({
       where: { id: payload.sub },
     });
@@ -154,5 +158,48 @@ export class AuthService {
 
   private clearRefreshTokenCookie(res: Response): void {
     res.clearCookie('refresh_token', { path: '/api/auth/refresh' });
+  }
+
+  async getProfile(userId: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        email: true,
+        username: true,
+        nickname: true,
+        avatar: true,
+        poster: true,
+        createdAt: true,
+      },
+    });
+    if (!user) {
+      throw new UnauthorizedException('Пользователь не найден');
+    }
+    return user;
+  }
+
+  async updateProfile(userId: string, dto: UpdateProfileDto) {
+    const data: Record<string, string | null> = {};
+
+    if (dto.nickname !== undefined) data.nickname = dto.nickname || null;
+    if (dto.avatar !== undefined) data.avatar = dto.avatar || null;
+    if (dto.poster !== undefined) data.poster = dto.poster || null;
+
+    const user = await this.prisma.user.update({
+      where: { id: userId },
+      data,
+      select: {
+        id: true,
+        email: true,
+        username: true,
+        nickname: true,
+        avatar: true,
+        poster: true,
+        createdAt: true,
+      },
+    });
+
+    return user;
   }
 }
