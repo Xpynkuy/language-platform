@@ -2,6 +2,9 @@ import styles from "./HeroSection.module.scss";
 export const HeroSection = () => {
   return (
     <div className={styles.hero}>
+      <span className={styles.loadingText} data-text="> АНАЛИЗ_ТВОИХ_ЗНАНИЙ...">
+        &gt; АНАЛИЗ_ТВОИХ_ЗНАНИЙ...
+      </span>
       <h2 className={styles.title}>Korean Booster</h2>
       <span className={styles.desc}>
         Хочешь понимать корейский и свободно говорить?

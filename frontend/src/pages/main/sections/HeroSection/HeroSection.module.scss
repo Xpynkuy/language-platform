@@ -1,8 +1,43 @@
+@use "../../../../app/styles/animation.scss" as animations;
+
 .hero {
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 20px;
+
+  .loadingText {
+    font: var(--font-s);
+    width: fit-content;
+    align-self: center;
+    position: relative;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.25);
+    white-space: nowrap;
+
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      color: var(--color-primary);
+      @include animations.typing-fill;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 2px;
+      height: 70%;
+      background: var(--color-primary);
+      transform: translate(-50%, -50%);
+      @include animations.typing-cursor;
+    }
+  }
 
   .title {
     font: var(--font-xxl);
