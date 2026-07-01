@@ -1,17 +1,17 @@
 .header {
-  background: transparent;
-  backdrop-filter: blur(12px);
+  background: rgba(16, 17, 25, 0.65);
   height: 90px;
   padding: 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
   .nav {
-    max-width: 1200px;
+    max-width: 1380px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 48px;
+
     .logo {
       text-decoration: none;
       display: inline-block;
@@ -27,7 +27,26 @@
     .links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 44px;
+    }
+
+    .link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+
+      &::before {
+        content: "[ " attr(data-number) " ]";
+        color: currentColor;
+        font-family: var(--font-family);
+        font-size: calc(var(--font-size-s) / 1.5);
+        line-height: 1;
+        opacity: 0.55;
+      }
+    }
+
+    .login {
+      margin-left: auto;
     }
   }
 }
