@@ -24,7 +24,8 @@
 
   --font-size-extra: 72px;
   --font-line-extra: 80px;
-  --font-extra: var(--font-size-extra) / var(--font-line-extra) var(--font-family);
+  --font-extra: var(--font-size-extra) / var(--font-line-extra)
+    var(--font-family);
 
   //BACKGROUND COLOR
   --bg-color-dark: #101119;
@@ -32,12 +33,15 @@
   --bg-color-light-dark: #151722;
   --bg-color-gray: #999999b7;
 
+
   //COLOR
   --color-primary: #557792;
   --color-gray: #6a7282;
+  --color-dark-gray: #232529;
   --color-black: #000;
   --color-red: #a50036;
   --color-white: #fff;
+  --color-blue: #638aaa;
 
   //TEXT COLOR
   --text-color-white: #fff;
@@ -48,4 +52,7 @@
 
   //BORDER border-radius
   --border-radius: 8px;
+
+  // SHADOW
+  --shadow-primary: 1px 0px 8px 3px rgba(15, 100, 165, 0.2);
 }
