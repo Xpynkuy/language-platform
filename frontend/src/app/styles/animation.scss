@@ -41,3 +41,50 @@
     inset 0 0 0 1px #557792,
     inset 0 0 16px rgba(85, 119, 146, 0.4);
 }
+
+// TYPING TEXT
+@mixin typing-fill($duration: 5s, $steps: 18) {
+  animation: typingFillText $duration steps($steps, end) infinite;
+}
+
+@mixin typing-cursor-move($duration: 5s, $steps: 18) {
+  animation: typingCursorMove $duration steps($steps, end) infinite;
+}
+
+@mixin typing-cursor-blink($duration: 0.8s) {
+  animation: typingCursorBlink $duration step-end infinite;
+}
+
+@mixin typing-cursor($duration: 5s, $steps: 18, $blink-duration: 0.8s) {
+  animation:
+    typingCursorMove $duration steps($steps, end) infinite,
+    typingCursorBlink $blink-duration step-end infinite;
+}
+
+@keyframes typingFillText {
+  0% {
+    width: 0;
+  }
+
+  60%,
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes typingCursorMove {
+  0% {
+    left: 0;
+  }
+
+  60%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes typingCursorBlink {
+  50% {
+    opacity: 0;
+  }
+}
