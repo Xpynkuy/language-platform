@@ -1,0 +1,278 @@
+@use "../../../../app/styles/animation.scss" as animations;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.kickerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(85, 119, 146, 0.6),
+    rgba(85, 119, 146, 0.25) 65%,
+    transparent
+  );
+}
+
+.loadingText {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  color: rgba(255, 255, 255, 0.25);
+  font: var(--font-s);
+  white-space: nowrap;
+
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    width: 0;
+    overflow: hidden;
+    color: var(--color-primary);
+    white-space: nowrap;
+    @include animations.typing-fill;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 2px;
+    height: 70%;
+    background: var(--color-primary);
+    transform: translate(-50%, -50%);
+    @include animations.typing-cursor;
+  }
+}
+
+.heading {
+  margin: 0;
+  color: var(--color-primary);
+  font: var(--font-xxl);
+}
+
+.lead {
+  max-width: 760px;
+  margin: 0;
+  color: var(--text-color-gray);
+  font: var(--font-m);
+}
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: rgba(16, 17, 25, 0.62);
+}
+
+.card {
+  position: relative;
+  min-height: 340px;
+  padding: 40px;
+  overflow: hidden;
+  border-right: 1px solid rgba(85, 119, 146, 0.28);
+  border-bottom: 1px solid rgba(85, 119, 146, 0.28);
+  background: rgba(21, 23, 34, 0.36);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:nth-child(2n) {
+    border-right: 0;
+  }
+
+  &:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid var(--color-primary);
+    border-left: 2px solid var(--color-primary);
+  }
+
+  &::after {
+    right: 0;
+    bottom: 0;
+    border-right: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+  }
+
+  &:hover {
+    background: rgba(85, 119, 146, 0.24);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &:hover .title,
+  &:hover .number,
+  &:hover .icon {
+    color: var(--color-primary);
+  }
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: var(--font-s);
+}
+
+.number {
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+.tag {
+  color: var(--text-color-gray);
+  opacity: 0.55;
+}
+
+.icon {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(85, 119, 146, 0.45);
+  color: var(--color-primary);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.8;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 460px;
+  margin-top: 88px;
+}
+
+.title {
+  max-width: 520px;
+  margin: 0;
+  color: var(--text-color-white);
+  font: var(--font-xl);
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.description {
+  margin: 20px 0 0;
+  color: var(--text-color-gray);
+  font: var(--font-m);
+}
+
+.bgNumber {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  font-size: 176px;
+  line-height: 1;
+  font-weight: 700;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 300px;
+    border-right: 0;
+
+    &:nth-last-child(-n + 2) {
+      border-bottom: 1px solid rgba(85, 119, 146, 0.28);
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .loadingText {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .heading {
+    font: var(--font-xl);
+  }
+
+  .lead {
+    font: var(--font-s);
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  .icon {
+    top: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .content {
+    margin-top: 72px;
+  }
+
+  .title {
+    font: var(--font-l);
+  }
+
+  .description {
+    font: var(--font-s);
+  }
+
+  .bgNumber {
+    font-size: 132px;
+  }
+}
