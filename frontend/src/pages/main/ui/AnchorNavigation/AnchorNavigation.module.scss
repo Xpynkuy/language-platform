@@ -1,0 +1,94 @@
+@use "../../../../app/styles/breakpoints.scss" as breakpoints;
+
+.anchorNav {
+  position: fixed;
+  top: 50%;
+  right: 34px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transform: translateY(-50%);
+
+  &::before,
+  &::after {
+    content: "";
+    width: 1px;
+    height: 156px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(85, 119, 146, 0.32) 18%,
+      rgba(204, 204, 204, 0.24) 50%,
+      rgba(85, 119, 146, 0.32) 82%,
+      transparent
+    );
+  }
+}
+
+.anchorLink {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(204, 204, 204, 0.58);
+  border-radius: 50%;
+  background: var(--bg-color-dark);
+  box-shadow: 0 0 0 4px rgba(16, 17, 25, 0.86);
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: inherit;
+    background: transparent;
+    transition: background 0.25s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-primary);
+    transform: scale(1.08);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-primary);
+    outline-offset: 5px;
+  }
+}
+
+.active {
+  border-color: var(--color-primary);
+  background: rgba(85, 119, 146, 0.24);
+  box-shadow:
+    0 0 0 4px rgba(16, 17, 25, 0.86),
+    0 0 14px rgba(85, 119, 146, 0.72);
+
+  &::after {
+    background: var(--color-primary);
+  }
+}
+
+@media (max-width: breakpoints.$bp-md) {
+  .anchorNav {
+    right: 18px;
+
+    &::before,
+    &::after {
+      height: 112px;
+    }
+  }
+}
+
+@media (max-width: breakpoints.$bp-sm) {
+  .anchorNav {
+    display: none;
+  }
+}
