@@ -1,7 +1,7 @@
-import { BurgerMenu } from "@features/burger-menu";
 import AppLink from "@shared/ui/AppLink/AppLink";
 import { Button } from "@shared/ui/Button/Button";
 import { RoutePath } from "app/providers/router/routerConfig";
+import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import styles from "./Header.module.scss";
 
 const navigationLinks = [
