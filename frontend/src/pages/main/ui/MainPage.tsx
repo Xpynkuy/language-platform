@@ -1,8 +1,8 @@
-import { AnchorNavigation } from "@features/anchor-navigation";
 import { About } from "../sections/AboutSection/About";
 import { Contact } from "../sections/ContactSection/Contact";
 import { FeaturesSection } from "../sections/FeaturesSection/FeaturesSection";
 import { HeroSection } from "../sections/HeroSection/HeroSection";
+import { AnchorNavigation } from "./AnchorNavigation/AnchorNavigation";
 import styles from "./MainPage.module.scss";
 
 const navigationItems = [
